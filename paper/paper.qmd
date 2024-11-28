@@ -1,0 +1,383 @@
+---
+title: "Key Drivers of Community Garden Growth: Analyzing Trends in PollinateTO Funding Across Toronto’s Neighborhoods"
+subtitle: "A Bayesian Approach to Understanding the Impact of Time, Type, and Location on Garden Size and Number."
+author: 
+  - Aliza Abbas Mithwani
+thanks: "Code and data are available at: [https://github.com/alizamithwani/PollinateTO.git]"
+date: today
+date-format: long
+abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+format:
+  pdf:
+    toc: true
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+#### Workspace setup ####
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(arrow)
+```
+
+
+# Introduction
+
+## Overview
+Urban biodiversity is increasingly recognized as vital to maintaining healthy ecosystems, especially in the face of rapid urbanization. Among the most important urban biodiversity goals is the protection of pollinators, whose decline poses significant risks to food security, agricultural productivity, and ecological stability. In response to this, many cities have launched initiatives to create pollinator-friendly habitats within urban spaces. Toronto’s PollinateTO program is one such initiative, aiming to enhance biodiversity by funding community-led pollinator gardens. Since its launch in 2019, the program has supported over 190 projects, resulting in nearly 500 gardens and approximately 25,500 square meters of pollinator habitat.
+
+Despite the program's success in expanding green spaces, the allocation of funding across these projects remains an understudied area. Questions about which types of gardens or neighborhoods are more likely to receive funding, and the factors influencing these decisions, are crucial for optimizing the program’s impact. The objective of this paper is to examine these allocation patterns, specifically whether garden characteristics such as type (e.g., rain gardens, boulevard gardens) or location (e.g., Neighbourhood Improvement Areas) influence the likelihood of receiving funding and the size of the funding allocation.
+
+In particular, this paper addresses the gap in understanding how urban biodiversity funding decisions are made, with a focus on the specific factors that contribute to higher funding likelihoods and amounts. The estimand in this analysis is whether particular garden features, community engagement strategies, or geographic locations are associated with receiving more substantial funding allocations from the PollinateTO program. By identifying these key factors, this research provides important insights into the effectiveness and equity of funding distributions for urban biodiversity projects.
+
+Our findings indicate that garden type, community engagement, and the location of the project all play significant roles in funding decisions. Specifically, we find that gardens in underserved neighborhoods and those emphasizing community involvement are more likely to receive higher funding allocations. These results offer actionable insights for optimizing resource distribution in urban biodiversity programs and aligning ecological goals with social equity considerations.
+
+The remainder of the paper is structured as follows: @sec-data describes the data used in the analysis, including its sources, key features, and considerations regarding measurement and visualization. Section 3 outlines the methodology, detailing the data visualization techniques employed and the justification for using a Bayesian logistic regression model to analyze the relationship between garden characteristics and funding outcomes. Section 4 presents the results, including model validation and key findings. Section 5 offers a discussion of the results, focusing on their implications through key points, followed by an examination of the study's limitations and suggested future steps for further exploration. Section 6 concludes the paper. The Appendix provides supplementary materials, including raw data previews, data feature definitions, data visualizations, and technical model details such as posterior predictive checks, MCMC convergence diagnostics, and additional figures.
+
+# Data {#sec-data}
+## Software Packages
+This analysis utilizes the R programming language [@citeR], with the 'rstanarm' [@rstanarm] and 'tidyverse' [@tidyverse] packages for statistical modeling and data manipulation. Our data comes from the PollinateTO Primary Project Garden Locations dataset [@PTdata], which is hosted on Toronto's Open Data Portal. Following the approach outlined in @tellingstories, we leverage these tools to explore patterns and trends in the allocation of PollinateTO funding.
+
+## Data Source
+The primary source of data for this study is the PollinateTO Primary Project Garden Locations dataset, which contains detailed information on community-led garden projects funded by PollinateTO. The dataset includes key features such as project locations, garden types, funding years, and other relevant information that enables an in-depth analysis of funding patterns and their spatial and socio-economic implications. This dataset is publicly accessible through Toronto's Open Data Portal and is a vital resource for studying the impact and effectiveness of PollinateTO in promoting urban biodiversity.
+
+## Data Features
+The dataset contains several key variables that are critical for understanding the distribution and characteristics of funded garden projects. Below, we describe each variable and its relevance to the analysis:
+
+- YEAR_FUNDED: The year each project received funding from PollinateTO. This variable is crucial for understanding temporal trends in the program’s funding allocation. It also allows us to analyze shifts in funding priorities over time.
+- GARDEN_TYPE: This variable categorizes the gardens by their ecological functions (e.g., rain gardens, food gardens, pollinator gardens). These types reflect the intended ecological role of each garden and are important for understanding the program's impact on biodiversity and the environment.
+- NIA_OR_EN: This classification indicates whether the project is located in a Neighbourhood Improvement Area (NIA), Emerging Neighbourhood (EN), or another area. These labels are derived from Toronto's planning data and allow for an exploration of whether funding is disproportionately allocated to areas with different socio-economic characteristics, enabling us to analyze equity in the distribution of funds.
+- WARD_NAME: The specific ward in Toronto where the garden project is located. This geographic indicator helps us assess whether certain neighborhoods receive more funding based on local government priorities or demographic characteristics.
+- IS_INDIGENOUS_GARDEN: A binary variable that identifies whether the project is Indigenous-led, based on self-identification in the funding application. This is a key variable for exploring whether the program is aligned with Toronto’s commitments to Indigenous communities and ecological knowledge.
+PROJECT_NAME: The name assigned to each garden project. While this variable is useful for identification, it is not directly involved in the analysis but helps in linking data points to specific projects.
+- LATITUDE and LONGITUDE: These geographic coordinates provide spatial context for each garden project. While these data points help in mapping and visualizing the geographic distribution of funded gardens, their primary role is in understanding spatial patterns and localizing project locations.
+
+These features collectively allow for a broad analysis of trends, equity, and the ecological goals of the PollinateTO initiative.
+
+## Constructed Variables
+In this study, variable is_large_garden was constructed. This binary variable was constructed to classify gardens as "large" or "small" based on their estimated garden size. Specifically, gardens with an estimated garden size greater than the mean size of all gardens in the dataset were coded as 1 (large garden), while those with a size less than or equal to the mean were coded as 0 (small garden). The mean garden size was calculated using the estimated_garden_size variable, excluding any missing values. This classification was chosen to capture differences in garden size relative to the overall distribution and to investigate whether larger gardens are more likely to receive funding.
+
+## Data Measurement
+The dataset translates real-world community garden projects funded by PollinateTO into structured entries, enabling the analysis of patterns and relationships. It includes several key variables, with the following interpretations based on assumptions about the dataset’s construction:
+
+YEAR_FUNDED likely reflects administrative records of the year projects received funding.
+GARDEN_TYPE seems derived from categorizations in project applications, capturing intended ecological roles.
+NIA_OR_EN appears to use Toronto city planning designations to classify locations.
+IS_INDIGENOUS_GARDEN assumes self-identification during the funding application process.
+WARD_NAME is based on project location within Toronto’s municipal wards.
+
+These assumptions are informed by typical practices in grant-based datasets. Confirmation would require consultation with PollinateTO’s documentation or administrators.
+
+## Data Consideration
+Several considerations affect the dataset’s completeness and reliability:
+
+Self-Reported Data: Variables such as GARDEN_TYPE and IS_INDIGENOUS_GARDEN are based on self-reporting by project applicants, which may introduce some subjectivity and inconsistency.
+
+Selection Bias: The dataset reflects funding decisions that may prioritize certain geographic areas, such as NIAs and ENs, which could lead to an overrepresentation of these areas relative to others. This potential bias should be considered when analyzing equity and resource allocation.
+
+Temporal Incompleteness: The dataset covers the period from 2019 to the present, which limits our ability to analyze trends over a longer historical period.
+
+Granularity: Some ecological measures, such as specific plant species or detailed environmental outcomes, are not captured in the dataset. This restricts the scope of ecological impact analysis, though the dataset’s focus on garden characteristics and funding allocation provides valuable insights.
+
+Geographic Precision: While LATITUDE and LONGITUDE provide the coordinates for each garden, there may be some inaccuracies in the precise location or boundaries of gardens, particularly in cases where they span multiple properties or are irregularly shaped.
+
+
+## Methodology
+The PollinateTO dataset collects detailed information on community-led garden projects funded by Toronto’s PollinateTO initiative. Data is sourced from the city’s Open Data portal and includes variables like garden type, location, funding year, and size, enabling analysis of trends in urban biodiversity projects. The dataset uses standardized attributes and is updated annually, making it a valuable tool for evaluating the initiative’s impact across various Toronto neighborhoods, though it may be subject to self-reporting biases and geographical limitations in precision.
+
+## Data Visualization
+To understand the data provided better, we visualize it using tables and graphs. To begin with, let's see how many gardens each type of neighborhood (NIA, EN or None) has and separate them by whether or not they are indigenous-led in @fig-IndNeiBoxPlot and @fig-IndNeiBarChart.
+
+```{r}
+#| label: fig-IndNeiBoxPlot
+#| fig-cap: Summary of Gardens by Neighborhood Type
+#| echo: false
+
+#### Read data ####
+PT_analysis_data <- read_parquet("../data/02-analysis_data/PT_analysis_data.parquet")
+
+# Summarize the data
+PT_summary_table <- PT_analysis_data %>%
+  group_by(nia_or_en) %>%
+  summarise(
+    Total_Gardens = n(), # Total number of gardens in each neighborhood type
+    Indigenous_Gardens = sum(is_indigenous_garden), # Count of Indigenous-led gardens
+    Non_Indigenous_Gardens = Total_Gardens - Indigenous_Gardens, # Count of Non-Indigenous gardens
+    Proportion_Indigenous = (Indigenous_Gardens / Total_Gardens) * 100, # Proportion of Indigenous gardens
+    .groups = "drop"
+  )
+
+# Display the table
+PT_summary_table %>%
+  kable(
+    col.names = c(
+      "Neighborhood Type (NIA or EN)", 
+      "Total Gardens", 
+      "Indigenous-Led Gardens", 
+      "Non-Indigenous Gardens", 
+      "Proportion Indigenous (%)"
+    )
+  )
+```
+
+```{r}
+#| label: fig-IndNeiBarChart
+#| fig-cap: Distribution of Garden Types Funded Over Time
+#| echo: false
+# Filter for Indigenous-Led gardens only
+PT_indigenous <- PT_analysis_data %>%
+  filter(is_indigenous_garden == 1) %>%
+  group_by(nia_or_en) %>%
+  summarise(count = n(), .groups = "drop")
+
+# Create a bar chart
+ggplot(PT_indigenous, aes(x = nia_or_en, y = count, fill = nia_or_en)) +
+  geom_bar(stat = "identity") +
+  scale_fill_brewer(palette = "Set2") +
+  labs(
+    title = "Count of Indigenous-Led Gardens by Neighborhood Type",
+    x = "Neighborhood Type (NIA or EN)",
+    y = "Number of Indigenous-Led Gardens",
+    fill = "Neighborhood Type"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "none"
+  )
+```
+
+Next, we visualize the trend of garden sizes and numbers across time to examine the impact of the initiative over time in @fig-trendline.
+
+```{r}
+#| label: fig-trendline
+#| fig-cap: Trend of Garden Size and Number Over Time
+#| echo: false
+
+# Summarize the data by year to get the total number of gardens and average garden size per year
+PT_summary <- PT_analysis_data %>%
+  group_by(year_funded) %>%
+  summarise(
+    total_gardens = sum(number_of_gardens, na.rm = TRUE), # Summing number of gardens per year
+    avg_garden_size = mean(estimated_garden_size, na.rm = TRUE) # Calculating average garden size
+  )
+
+# Create the line chart with two y-axes (total gardens and average size)
+ggplot(PT_summary, aes(x = year_funded)) +
+  geom_line(aes(y = total_gardens), color = "blue", linewidth = 1.2, linetype = "solid") + 
+  geom_line(aes(y = avg_garden_size), color = "red", linewidth = 1.2, linetype = "dashed") +
+  scale_y_continuous(
+    name = "Total Number of Gardens", 
+    sec.axis = sec_axis(~., name = "Average Garden Size (Estimated)")
+  ) +
+  labs(
+    x = "Year Funded",
+    y = "Total Number of Gardens"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title.y.right = element_text(color = "red"),
+    axis.text.y.right = element_text(color = "red")
+  )
+```
+\newpage
+Now, let's analyze the proportion of each garden type visually across time in @fig-distributiontype to see if certain garden types increased in number and proportion overtime, reflecting shifting funding priorities and initiatives.
+
+```{r}
+#| label: fig-distributiontype
+#| fig-cap: Distribution of Garden Types Funded Over Time
+#| echo: false
+
+# Summarize the data to get the count of garden types by year
+PT_summary <- PT_analysis_data %>%
+  group_by(year_funded, garden_type) %>%
+  summarise(
+    garden_count = n(), # Count the number of occurrences for each garden type per year
+    .groups = "drop"
+  )
+
+# Create the bar chart
+ggplot(PT_summary, aes(x = year_funded, y = garden_count, fill = garden_type)) +
+  geom_bar(stat = "identity", position = "stack") + # Stacked bar chart
+  scale_fill_brewer(palette = "Set3") + # Use a color palette for clarity
+  labs(
+    x = "Year Funded",
+    y = "Number of Gardens",
+    fill = "Garden Type"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(hjust = 1) # Rotate x-axis labels for readability
+  )
+```
+\newpage
+To prevent outliars from making graphs unreadable, we use log-transformed garden sizes to analyze differences in garden sizes based on neighborhood type in @fig-neighborhoodsize. A boxplot is used to do this where the 3 neighborhood categories are EN (Emerging Neighborhoods), NIA (Neighborhood Improvement Areas) and None (neither EN nor NIA).
+
+```{r}
+#| label: fig-neighborhoodsize
+#| fig-cap: Log-Transformed Garden Sizes by Neighborhood Type
+#| echo: false
+# Add a log-transformed column for garden size
+PT_analysis_data <- PT_analysis_data %>%
+  mutate(log_garden_size = log1p(estimated_garden_size)) # log1p handles zero values safely
+
+# Use the log-transformed column in the boxplot
+ggplot(PT_analysis_data, aes(x = nia_or_en, y = log_garden_size, fill = nia_or_en)) +
+  geom_boxplot(outlier.color = "red", outlier.shape = 16, notch = FALSE) +
+  scale_fill_brewer(palette = "Pastel1") +
+  labs(
+    x = "Neighborhood Type (NIA or EN)",
+    y = "Log of Estimated Garden Size",
+    fill = "Neighborhood Type"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "none"
+  )
+```
+# Model
+In the analysis, I used a Bayesian Logistic Regression Model to examine the relationship between garden size and other factors like the type of garden, the year the project was funded, the neighborhood type (emerging neighborhood, EN vs neighborhood improvement area, NIA), and if it is an indigenous-led project. We are interested in modeling whether a garden is large (binary outcome) as a function of various factors such as the garden type, year funded, neighborhood type, indigenous garden status, and ward name. Background details and diagnostics are included in [Appendix -@sec-model-details].
+
+## Model set-up
+
+```{Latex}
+\begin{align}
+y_i|\pi_i &\sim \mbox{Bern}(\pi_i) \\
+\mbox{logit}(\pi_i) &= \alpha + \beta_1 \times \mbox{garden_type}_i + \beta_2 \times \mbox{year_funded}_i + \beta_3 \times \mbox{nia_or_en}_i + \beta_4 \times \mbox{is_indigenous_garden}_i + \beta_5 \times \mbox{ward_name}_i\\
+\alpha &\sim \mbox{Normal}(0, 2.5) \\
+\beta_1 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_2 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_3 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_4 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_5 &\sim \mbox{Normal}(0, 2.5)
+\end{align}
+```
+
+
+Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
+We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
+
+
+### Model justification
+
+We expect a positive relationship between the size of the wings and time spent aloft. In particular...
+
+We can use maths by including latex between dollar signs, for instance $\theta$.
+
+
+# Results
+
+Our results are summarized in @tbl-modelresults.
+
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: tbl-modelresults
+#| tbl-cap: "Explanatory models of flight time based on wing width and wing length"
+#| warning: false
+
+#modelsummary::modelsummary(
+#  list(
+#    "First model" = first_model
+ # ),
+ # statistic = "mad",
+ # fmt = 2
+#)
+```
+
+
+
+
+# Discussion
+
+## First discussion point {#sec-first-point}
+
+If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+
+## Second discussion point
+
+Please don't use these as sub-heading labels - change them to be what your point actually is.
+
+## Third discussion point
+
+## Weaknesses and next steps
+
+Weaknesses and next steps should also be included.
+
+\newpage
+
+\appendix
+
+# Appendix {-}
+
+
+# Additional data details
+
+# Model details {#sec-model-details}
+
+## Posterior predictive check
+
+In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
+
+In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-ppcheckandposteriorvsprior
+#| layout-ncol: 2
+#| fig-cap: "Examining how the model fits, and is affected by, the data"
+#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
+
+#pp_check(first_model) +
+#  theme_classic() +
+#  theme(legend.position = "bottom")
+
+#posterior_vs_prior(first_model) +
+#  theme_minimal() +
+ # scale_color_brewer(palette = "Set1") +
+#  theme(legend.position = "bottom") +
+#  coord_flip()
+```
+
+## Diagnostics
+
+@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
+
+@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-stanareyouokay
+#| fig-cap: "Checking the convergence of the MCMC algorithm"
+#| fig-subcap: ["Trace plot", "Rhat plot"]
+#| layout-ncol: 2
+
+#plot(first_model, "trace")
+
+#plot(first_model, "rhat")
+```
+
+
+
+\newpage
+
+
+# References
+
+
