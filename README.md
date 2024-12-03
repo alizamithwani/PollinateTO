@@ -1,11 +1,11 @@
-## Key Drivers of Community Garden Growth: Analyzing Trends in PollinateTO Funding Across Toronto’s Neighborhoods🪴
+## 🪴 Key Drivers of Community Garden Growth: Analyzing Trends in PollinateTO Funding Across Toronto’s Neighborhoods
 
-## Overview📊
+## 📊 Overview
 
 This repo provides the scripts, data, paper, and sketches to understand the relationship between garden size and factors like year funded, neighborhood type, ward, being indigenous-status, and garden_type.
 
 
-## File Structure📂
+## 📂 File Structure
 
 The repo is structured as:
 
@@ -18,7 +18,7 @@ The repo is structured as:
 -   `scripts` contains the R scripts used to simulate, download, clean, test, explore and model data.
 
 
-## Statement on LLM usage💬
+## 💬 Statement on LLM usage
 
 Many aspects of this paper along with the scripts were written with the help of ChatGPT 4.0. The title, abstract, introduction, data, model, results, discussion, weaknesses and limitations and appendix were written with the help of ChatGPT 4.0. The entire chat history is available in other/llm_usage/usage.txt.
 
