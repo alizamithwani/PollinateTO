@@ -21,8 +21,3 @@ The repo is structured as:
 ## 💬 Statement on LLM usage
 
 Many aspects of this paper along with the scripts were written with the help of ChatGPT 4.0. The title, abstract, introduction, data, model, results, discussion, weaknesses and limitations and appendix were written with the help of ChatGPT 4.0. The entire chat history is available in other/llm_usage/usage.txt.
-
-## Some checks
-
-- [ ] Update comments in R scripts
-- [ ] Remove this checklist
