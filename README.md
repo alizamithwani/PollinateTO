@@ -1,4 +1,4 @@
-📌# Key Drivers of Community Garden Growth: Analyzing Trends in PollinateTO Funding Across Toronto’s Neighborhoods
+## 📌Key Drivers of Community Garden Growth: Analyzing Trends in PollinateTO Funding Across Toronto’s Neighborhoods
 
 ## Overview
 
