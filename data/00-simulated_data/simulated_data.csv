@@ -1,0 +1,150 @@
+id,year_funded,garden_type,nia_or_en,ward_name,is_indigenous_garden,number_of_gardens,estimated_garden_size
+1,2021,School Learning Garden,None,Humber River-Black Creek,1,20,765.8446902947035
+2,2021,School Learning Garden,None,Scarborough Southwest,0,20,765.8446902947035
+3,2021,"Spiritual Centre Garden, Rain Garden",EN,Scarborough-Guildwood,0,20,765.8446902947035
+4,2022,Multiple Front Yard Gardens,NIA,Etobicoke-Lakeshore,1,20,765.8446902947035
+5,2023,Boulevard Garden,NIA,Eglinton-Lawrence,1,20,765.8446902947035
+6,2020,"Spiritual Centre Garden, Rain Garden",None,York Centre,1,20,765.8446902947035
+7,2022,"City Park, Rain Garden",EN,Eglinton-Lawrence,1,20,765.8446902947035
+8,2021,"City Park, Rain Garden",NIA,Davenport,0,20,765.8446902947035
+9,2020,"Boulevard Garden, Rain Garden",None,Don Valley West,1,20,765.8446902947035
+10,2023,"Boulevard Garden, Rain Garden",None,Don Valley North,1,20,765.8446902947035
+11,2021,School Learning Garden,None,Humber River-Black Creek,1,20,765.8446902947035
+12,2023,School Learning Garden,None,Toronto Centre,1,20,765.8446902947035
+13,2020,Multiple Boulevard Gardens,None,York South-Weston,0,20,765.8446902947035
+14,2023,"Boulevard Garden, Rain Garden",EN,Davenport,0,20,765.8446902947035
+15,2022,Multi-Residential Garden,NIA,Willowdale,1,20,765.8446902947035
+16,2023,Multiple Front Yard Gardens,EN,Toronto Centre,1,20,765.8446902947035
+17,2023,Multiple Boulevard Gardens,EN,University-Rosedale,1,20,765.8446902947035
+18,2021,Communal Garden,EN,Scarborough Southwest,1,20,765.8446902947035
+19,2021,Multi-Residential Garden,NIA,Toronto-Danforth,1,20,765.8446902947035
+20,2020,"Spiritual Centre Garden, Rain Garden",NIA,York South-Weston,0,20,765.8446902947035
+21,2020,Boulevard Garden,EN,Beaches-East York,1,20,765.8446902947035
+22,2022,"Boulevard Garden, Rain Garden",EN,York South-Weston,1,20,765.8446902947035
+23,2021,"Boulevard Garden, Rain Garden",None,Humber River-Black Creek,0,20,765.8446902947035
+24,2020,Spiritual Centre Garden,None,Spadina-Fort York,1,20,765.8446902947035
+25,2021,Multiple Boulevard Gardens,EN,Parkdale-High Park,0,20,765.8446902947035
+26,2023,"Boulevard Garden, Rain Garden",EN,Don Valley West,0,20,765.8446902947035
+27,2021,City Park,None,Etobicoke North,0,20,765.8446902947035
+28,2021,"Spiritual Centre Garden, Rain Garden",NIA,Don Valley North,1,20,765.8446902947035
+29,2020,Multiple Front Yard Gardens,NIA,Toronto Centre,1,20,765.8446902947035
+30,2023,Multiple Front Yard Gardens,EN,Humber River-Black Creek,0,20,765.8446902947035
+31,2022,Boulevard Garden,NIA,York South-Weston,0,20,765.8446902947035
+32,2022,"Spiritual Centre Garden, Rain Garden",None,Etobicoke North,0,20,765.8446902947035
+33,2020,"Boulevard Garden, Rain Garden",EN,Etobicoke-Lakeshore,1,20,765.8446902947035
+34,2021,City Park,NIA,Don Valley West,0,20,765.8446902947035
+35,2020,School Learning Garden,None,Spadina-Fort York,1,20,765.8446902947035
+36,2021,Multiple Property Garden,NIA,Humber River-Black Creek,0,20,765.8446902947035
+37,2021,Multi-Residential Garden,NIA,Davenport,1,20,765.8446902947035
+38,2023,Spiritual Centre Garden,None,Toronto Centre,1,20,765.8446902947035
+39,2023,"Spiritual Centre Garden, Rain Garden",None,Scarborough-Guildwood,1,20,765.8446902947035
+40,2021,"City Park, Rain Garden",EN,Parkdale-High Park,0,20,765.8446902947035
+41,2022,Multi-Residential Garden,EN,Willowdale,1,20,765.8446902947035
+42,2020,Boulevard Garden,EN,Etobicoke-Lakeshore,0,20,765.8446902947035
+43,2022,School Learning Garden,EN,University-Rosedale,0,20,765.8446902947035
+44,2022,"Spiritual Centre Garden, Rain Garden",EN,Don Valley East,0,20,765.8446902947035
+45,2022,City Park,EN,Toronto-Danforth,1,20,765.8446902947035
+46,2020,"Spiritual Centre Garden, Rain Garden",None,York South-Weston,0,20,765.8446902947035
+47,2023,City Park,NIA,Scarborough-Rouge Park,1,20,765.8446902947035
+48,2023,Spiritual Centre Garden,None,Toronto Centre,0,20,765.8446902947035
+49,2022,"Boulevard Garden, Rain Garden",EN,Eglinton-Lawrence,0,20,765.8446902947035
+50,2020,Multiple Property Garden,None,Davenport,0,20,765.8446902947035
+51,2021,"Boulevard Garden, Rain Garden",EN,Etobicoke-Lakeshore,0,20,765.8446902947035
+52,2023,Multi-Residential Garden,EN,Scarborough-Rouge Park,1,20,765.8446902947035
+53,2023,"City Park, Rain Garden",None,Toronto Centre,0,20,765.8446902947035
+54,2020,Multi-Residential Garden,EN,Don Valley West,1,20,765.8446902947035
+55,2021,City Park,None,Scarborough-Guildwood,0,20,765.8446902947035
+56,2022,"Spiritual Centre Garden, Rain Garden",None,York South-Weston,0,20,765.8446902947035
+57,2020,"Boulevard Garden, Rain Garden",NIA,Beaches-East York,0,20,765.8446902947035
+58,2022,City Park,NIA,Eglinton-Lawrence,0,20,765.8446902947035
+59,2021,Boulevard Garden,EN,Don Valley East,1,20,765.8446902947035
+60,2022,"City Park, Rain Garden",None,Spadina-Fort York,0,20,765.8446902947035
+61,2023,Multiple Property Garden,None,Beaches-East York,1,20,765.8446902947035
+62,2020,Boulevard Garden,EN,Etobicoke-Lakeshore,0,20,765.8446902947035
+63,2022,"Spiritual Centre Garden, Rain Garden",EN,Toronto Centre,1,20,765.8446902947035
+64,2022,"Boulevard Garden, Rain Garden",EN,University-Rosedale,1,20,765.8446902947035
+65,2020,"Boulevard Garden, Rain Garden",None,Eglinton-Lawrence,0,20,765.8446902947035
+66,2023,"City Park, Rain Garden",None,Humber River-Black Creek,0,20,765.8446902947035
+67,2021,Multiple Property Garden,None,York South-Weston,0,20,765.8446902947035
+68,2023,Spiritual Centre Garden,NIA,Don Valley East,0,20,765.8446902947035
+69,2020,Spiritual Centre Garden,EN,Don Valley East,0,20,765.8446902947035
+70,2023,Multi-Residential Garden,NIA,Toronto Centre,1,20,765.8446902947035
+71,2022,"City Park, Rain Garden",EN,Eglinton-Lawrence,1,20,765.8446902947035
+72,2023,City Park,NIA,Humber River-Black Creek,0,20,765.8446902947035
+73,2023,"Spiritual Centre Garden, Rain Garden",EN,York Centre,0,20,765.8446902947035
+74,2023,Multiple Front Yard Gardens,NIA,University-Rosedale,1,20,765.8446902947035
+75,2020,City Park,None,Toronto Centre,1,20,765.8446902947035
+76,2022,Multi-Residential Garden,EN,Scarborough Centre,1,20,765.8446902947035
+77,2023,Spiritual Centre Garden,EN,Davenport,0,20,765.8446902947035
+78,2020,"Spiritual Centre Garden, Rain Garden",EN,Humber River-Black Creek,1,20,765.8446902947035
+79,2021,School Learning Garden,EN,Scarborough Centre,0,20,765.8446902947035
+80,2020,Multiple Property Garden,NIA,Toronto-St. Paul's,0,20,765.8446902947035
+81,2021,Multiple Front Yard Gardens,None,University-Rosedale,1,20,765.8446902947035
+82,2021,Multiple Property Garden,NIA,York South-Weston,1,20,765.8446902947035
+83,2023,"Spiritual Centre Garden, Rain Garden",NIA,Eglinton-Lawrence,0,20,765.8446902947035
+84,2023,Multiple Property Garden,EN,York Centre,1,20,765.8446902947035
+85,2022,"Spiritual Centre Garden, Rain Garden",NIA,Willowdale,0,20,765.8446902947035
+86,2023,Multiple Boulevard Gardens,None,Scarborough-Agincourt,0,20,765.8446902947035
+87,2020,Multi-Residential Garden,EN,Humber River-Black Creek,1,20,765.8446902947035
+88,2023,Multi-Residential Garden,None,Spadina-Fort York,1,20,765.8446902947035
+89,2023,School Learning Garden,NIA,Toronto-St. Paul's,1,20,765.8446902947035
+90,2022,"City Park, Rain Garden",NIA,Scarborough-Guildwood,0,20,765.8446902947035
+91,2023,Spiritual Centre Garden,None,University-Rosedale,1,20,765.8446902947035
+92,2020,Multiple Boulevard Gardens,None,Scarborough-Guildwood,1,20,765.8446902947035
+93,2021,Boulevard Garden,NIA,Etobicoke-Lakeshore,1,20,765.8446902947035
+94,2021,Boulevard Garden,NIA,Don Valley East,1,20,765.8446902947035
+95,2020,Multiple Front Yard Gardens,EN,Etobicoke North,0,20,765.8446902947035
+96,2021,Multiple Boulevard Gardens,NIA,Scarborough-Rouge Park,1,20,765.8446902947035
+97,2023,Multiple Property Garden,None,Scarborough-Rouge Park,1,20,765.8446902947035
+98,2023,Multiple Property Garden,None,Scarborough-Agincourt,1,20,765.8446902947035
+99,2023,Multiple Boulevard Gardens,NIA,Scarborough-Rouge Park,0,20,765.8446902947035
+100,2020,School Learning Garden,None,Scarborough Southwest,0,20,765.8446902947035
+101,2020,"City Park, Rain Garden",NIA,Scarborough-Agincourt,1,20,765.8446902947035
+102,2023,"Spiritual Centre Garden, Rain Garden",NIA,York South-Weston,1,20,765.8446902947035
+103,2020,Multiple Front Yard Gardens,NIA,Willowdale,0,20,765.8446902947035
+104,2022,Boulevard Garden,EN,University-Rosedale,0,20,765.8446902947035
+105,2021,Spiritual Centre Garden,NIA,Scarborough-Rouge Park,0,20,765.8446902947035
+106,2023,Multiple Front Yard Gardens,EN,Willowdale,1,20,765.8446902947035
+107,2022,Multiple Property Garden,None,Etobicoke-Lakeshore,0,20,765.8446902947035
+108,2020,City Park,NIA,Toronto Centre,1,20,765.8446902947035
+109,2022,Multiple Front Yard Gardens,None,York South-Weston,0,20,765.8446902947035
+110,2022,"Spiritual Centre Garden, Rain Garden",None,Don Valley West,1,20,765.8446902947035
+111,2021,Communal Garden,NIA,Parkdale-High Park,0,20,765.8446902947035
+112,2020,Multiple Front Yard Gardens,None,Etobicoke Centre,0,20,765.8446902947035
+113,2022,Multiple Property Garden,NIA,Scarborough-Agincourt,0,20,765.8446902947035
+114,2020,Multiple Boulevard Gardens,EN,University-Rosedale,1,20,765.8446902947035
+115,2020,Boulevard Garden,NIA,Scarborough Centre,1,20,765.8446902947035
+116,2022,"Boulevard Garden, Rain Garden",NIA,Scarborough-Rouge Park,1,20,765.8446902947035
+117,2023,"Spiritual Centre Garden, Rain Garden",None,Don Valley North,1,20,765.8446902947035
+118,2020,"City Park, Rain Garden",EN,Etobicoke North,0,20,765.8446902947035
+119,2023,School Learning Garden,NIA,Willowdale,1,20,765.8446902947035
+120,2020,"Spiritual Centre Garden, Rain Garden",EN,Scarborough-Guildwood,1,20,765.8446902947035
+121,2023,School Learning Garden,EN,Scarborough Southwest,1,20,765.8446902947035
+122,2021,Multi-Residential Garden,NIA,Don Valley West,1,20,765.8446902947035
+123,2020,Boulevard Garden,None,Toronto Centre,0,20,765.8446902947035
+124,2023,City Park,EN,Scarborough-Agincourt,0,20,765.8446902947035
+125,2023,"City Park, Rain Garden",None,Toronto-Danforth,1,20,765.8446902947035
+126,2023,Multiple Boulevard Gardens,EN,Spadina-Fort York,1,20,765.8446902947035
+127,2021,School Learning Garden,None,Scarborough Southwest,1,20,765.8446902947035
+128,2021,"Boulevard Garden, Rain Garden",EN,Scarborough-Guildwood,1,20,765.8446902947035
+129,2023,Multiple Boulevard Gardens,None,Beaches-East York,1,20,765.8446902947035
+130,2022,Multiple Boulevard Gardens,EN,Scarborough-Agincourt,1,20,765.8446902947035
+131,2022,Spiritual Centre Garden,EN,Don Valley West,1,20,765.8446902947035
+132,2022,Multiple Property Garden,EN,Scarborough Southwest,0,20,765.8446902947035
+133,2022,School Learning Garden,None,Etobicoke North,1,20,765.8446902947035
+134,2020,Boulevard Garden,None,Scarborough Southwest,1,20,765.8446902947035
+135,2023,"Spiritual Centre Garden, Rain Garden",NIA,Don Valley North,1,20,765.8446902947035
+136,2021,Multi-Residential Garden,NIA,Toronto-Danforth,0,20,765.8446902947035
+137,2020,Communal Garden,NIA,Scarborough Southwest,0,20,765.8446902947035
+138,2020,Multiple Front Yard Gardens,EN,Willowdale,0,20,765.8446902947035
+139,2021,Communal Garden,EN,Scarborough Centre,0,20,765.8446902947035
+140,2020,Multiple Front Yard Gardens,EN,Davenport,0,20,765.8446902947035
+141,2021,Multiple Property Garden,EN,Willowdale,1,20,765.8446902947035
+142,2021,Boulevard Garden,EN,Don Valley West,0,20,765.8446902947035
+143,2022,"City Park, Rain Garden",EN,Parkdale-High Park,0,20,765.8446902947035
+144,2023,Multiple Property Garden,None,York Centre,0,20,765.8446902947035
+145,2022,"Spiritual Centre Garden, Rain Garden",EN,Spadina-Fort York,1,20,765.8446902947035
+146,2021,Communal Garden,NIA,Davenport,1,20,765.8446902947035
+147,2020,Boulevard Garden,EN,Scarborough-Rouge Park,1,20,765.8446902947035
+148,2022,Spiritual Centre Garden,NIA,Don Valley North,1,20,765.8446902947035
+149,2020,Multiple Property Garden,None,Parkdale-High Park,1,20,765.8446902947035
