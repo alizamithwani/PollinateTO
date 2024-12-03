@@ -1,6 +1,6 @@
 ## Key Drivers of Community Garden Growth: Analyzing Trends in PollinateTO Funding Across Toronto’s Neighborhoods🪴
 
-## Overview🌐
+## Overview📊
 
 This repo provides the scripts, data, paper, and sketches to understand the relationship between garden size and factors like year funded, neighborhood type, ward, being indigenous-status, and garden_type.
 
