@@ -1,4 +1,4 @@
-## 🪴 Key Drivers of Community Garden Growth: Analyzing Trends in PollinateTO Funding
+## 🪴 Factors Influencing Community Garden Growth: Analyzing Trends in PollinateTO Funding
 
 ## 📊 Overview
 
